@@ -1,6 +1,6 @@
 <% content_for :head do %>
-  <title><%= @item.title %> さんのマイページ</title>
-  <meta name="description" content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
+  <title><%= @item.title %></title>
+  <meta name="description" content="<%= @item.title %> に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
   <meta name="keywords" content="Monolist,<%= @item.title %>">
 <% end %>
 
@@ -27,14 +27,22 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
+          
           <% # TODO Haveしたユーザー一覧 %>
+          <% @haveds.each do |haveds| %>
+            <%= link_to gravatar_for(haveds, size: 50), haveds %>
+          <% end %>
           
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
+
           <% # TODO Wantしたユーザー一覧 %>
+          <% @wanteds.each do |wanteds| %>
+            <%= link_to gravatar_for(wanteds, size: 50), wanteds %>
+          <% end %>
           
         </div>
       </div>
