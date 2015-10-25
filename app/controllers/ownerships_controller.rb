@@ -4,10 +4,7 @@ class OwnershipsController < ApplicationController
   def create
     #binding.pry
     if params[:asin]
-      #重複時エラーになる
-      #@item = Item.find_or_initialize_by(asin: params[:asin])
-      #存在しなかった場合のみ追加
-      @item = Item.find_or_create_by(asin: params[:asin])
+      @item = Item.find_or_initialize_by(asin: params[:asin])
     else
       @item = Item.find(params[:item_id])
     end

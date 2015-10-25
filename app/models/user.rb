@@ -43,7 +43,10 @@ class User < ActiveRecord::Base
 
   # アイテムをWantする
   def want(item)
-    want_to_items.create(item_id: item.id)
+    #重複時エラーになる
+    #want_to_items.create(item_id: item.id)
+    #存在しなかった場合のみ追加
+    want_to_items.find_or_create_by(item_id: item.id)
   end
   # Wantを解除する
   def unwant(item)
@@ -62,7 +65,10 @@ class User < ActiveRecord::Base
 
   # アイテムをHaveする
   def have(item)
-    have_to_items.create(item_id: item.id)
+    #重複時エラーになる
+    #have_to_items.create(item_id: item.id)
+    #存在しなかった場合のみ追加
+    have_to_items.find_or_create_by(item_id: item.id)
   end
   # Haveを解除する
   def unhave(item)
