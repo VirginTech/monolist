@@ -1,5 +1,5 @@
 <%= link_to "" , 
-  ownership_path( current_user.haves.find_by(:item_id => item.id) , 
+  ownership_path( current_user.have_to_items.find_by(:item_id => item.id) , 
     item_id: item.id , type: "Have") ,
   :class => "have-#{item.id} btn-have btn btn-warning btn-sm haved",
   :remote => true,

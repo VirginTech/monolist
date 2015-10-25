@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   # Wantしているアイテムの一覧を取得するメソッド
   #====================
   has_many :want_to_items, class_name: "Want", foreign_key: "user_id", dependent: :destroy
-  has_many :want_items , through: :wants, source: :item
+  has_many :want_items , through: :want_to_items, source: :item
 
   # アイテムをWantする
   def want(item)
@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   # Haveしているアイテムの一覧を取得するメソッド
   #====================
   has_many :have_to_items, class_name: "Have", foreign_key: "user_id", dependent: :destroy
-  has_many :have_items , through: :haves, source: :item
+  has_many :have_items , through: :have_to_items, source: :item
 
   # アイテムをHaveする
   def have(item)
