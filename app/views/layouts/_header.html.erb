@@ -26,6 +26,21 @@
                   アイテムを追加
                 <% end %>
               </li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  ランキング
+                </a>                    
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "欲しい物ランキング" , want_path(:html)  %>
+                  </li>
+                  <li>
+                    <%= link_to "持っている物ランキング", have_path %>
+                  </li>
+                </ul>
+              </li>
+              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <span class="gravatar">

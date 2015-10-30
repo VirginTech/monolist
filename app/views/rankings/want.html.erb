@@ -1,0 +1,40 @@
+<center>
+  <h1>欲しいものランキング！</h1>
+  
+  <div class="container">
+    <div class="container-inner inner-default clearfix">
+      <table border=0 class="ranking">
+      <% i=0 %>
+        <% @items.each do |item| %>
+          <tr>
+            <td width=120 align="center">
+              <font size=10><%= i+=1 %>位</font><br>
+              <font size=5>(<%= Want.where(item_id: item.id).count %>件)</font>
+            </td>
+            <td>
+              <div class="item-box">
+                <div class="image">
+                  <div class="img-wrap">
+                    <% if item.large_image.present? %>
+                      <%= image_tag(item.large_image , alt: item.title) %>
+                    <% else %>
+                      <%= image_tag("no-image.png" , alt: item.title) %>
+                    <% end %>
+                  </div>
+                </div>
+                <%= render 'items/action' , item: item if logged_in? %>
+              </div>
+            </td>
+            <td width=300>
+              <div class="detail">
+                <p class="title">
+                  <%= item.title %>
+                </p>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</center>
