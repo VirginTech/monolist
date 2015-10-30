@@ -2,7 +2,8 @@ class RankingsController < ApplicationController
   
   def want
     #binding.pry
-    #want_ids = Ownership.where(type:"Want")
+    #アイテム(ID)の多い順に並び替え
+    #want_ids = Ownership.where(type:"Want")　→これは要らない
     want_ids = Want.group(:item_id)
                     .order('count_item_id desc')
                     .limit(10)
@@ -14,7 +15,8 @@ class RankingsController < ApplicationController
   
   def have
     #binding.pry
-    #have_ids = Ownership.where(type:"Have")
+    #アイテム(ID)の多い順に並び替え
+    #have_ids = Ownership.where(type:"Have")　→これは要らない
     have_ids = Have.group(:item_id)
                     .order('count_item_id desc')
                     .limit(10)
